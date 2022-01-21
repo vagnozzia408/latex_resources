@@ -1,0 +1,172 @@
+%------------------------ RESUME TEMPLATE -------------------------------------
+
+%------------------------------ PREAMBLE --------------------------------------
+
+% You probably won't need to change any of this. It might be helpful looking at the comments to get an idea of how sections are formatted. Otherwise, scroll down to HEADER to start editing content!
+
+\documentclass{resume} % Use the custom resume.cls style
+\usepackage[autostyle]{csquotes}
+\usepackage{amsfonts}
+\usepackage{multicol}
+\usepackage{hyperref}
+\setlength{\columnsep}{1cm}
+
+\newcommand\textbox[1]{%
+  \parbox{.48\textwidth}{#1}%
+}
+
+\newenvironment{rEmptySubsection}[3]{
+  %%%%%%%%%%%%%%%%%%%%%% Default Layout: %%%%%%%%%%%%%%%%%%%%%%%%
+  %%    Employer (bold)                     Dates (regular)    %%
+  %%    Title (emphasis)                Location (emphasis)    %%
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  {\bf #1}                 \hfill                  {    #2}% Stop a space
+  \ifthenelse{\equal{#3}{}}{}{
+  \\
+  {\em #3}                                 % Stop a space
+  }
+  % empty
+}{
+}
+
+\newenvironment{rNSubsection}[4]{
+  %%%%%%%%%%%%%%%%%%%%%% Default Layout: %%%%%%%%%%%%%%%%%%%%%%%%
+  %%    Employer (bold)                     Dates (regular)    %%
+  %%    Title (emphasis)                Location (emphasis)    %%
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  {\bf #1}                 \hfill                  {    #2}% Stop a space
+  \ifthenelse{\equal{#3}{}}{}{
+  \\
+  {\em #3}                 \hfill                  {\em #4}% Stop a space
+  }\smallskip
+  % \cdot used for bullets, items non-indented
+  \begin{list}{}{\leftmargin=0em}
+  \itemsep -0.5em \vspace{-0.5em}
+}{
+  \end{list}
+  \vspace{0.5em}
+}
+
+\newenvironment{rMSubsection}[3]{
+  %%%%%%%%%%%%%%%%%%%%%% Default Layout: %%%%%%%%%%%%%%%%%%%%%%%%
+  %%    Employer (bold)                     Dates (regular)    %%
+  %%    Title (emphasis)                Location (emphasis)    %%
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  {\bf #1}                 \hfill                  {    #2}% Stop a space
+  \ifthenelse{\equal{#3}{}}{}{
+  \\
+  { #3}                                 % Stop a space
+  }
+  % empty
+}{
+}
+
+\newcommand{\tab}[1]{\hspace{.2667\textwidth}\rlap{#1}}
+\newcommand{\itab}[1]{\hspace{0em}\rlap{#1}}
+
+
+%------------------------------ HEADER -----------------------------------------
+
+\name{Your Name Here}
+\address{Phone \\ Email Address \\ Website}
+\address{}
+\address{Address 1 \\  Address 2}
+
+\begin{document}
+
+\thispagestyle{plain}
+
+%------------------------------ CONTENT ---------------------------------------
+
+%----------------------------------------------------------------------------------------
+
+\begin{rSection}{Education}
+
+\textbox{\textbf{Degree Title and Discipline}\hfill}\textbox{\hfill Graduation Date}\\		
+\textbox{University Name, \textit{University Location}}{\hfill GPA (if applicable)}
+
+% If your degree title/discipline spills onto the next line, put it in \mbox{}.
+
+\textbox{\textbf{Master of Science, Mathematical Sciences}\hfill}\textbox{\hfill May 2020}\\		
+\textbox{Clemson University, \textit{Clemson, SC}\hfill}{\hfill GPA: 3.65/4.0}
+
+\end{rSection}
+
+%----------------------------------------------------------------------------------------
+
+\begin{rSection}{Work Experience}
+
+% rSubsection works well if you want to have a job position that includes several bullet points beneath it.
+
+\begin{rSubsection}{Job Title}{Dates - Dates}{Company/Organization}{Location}
+\item Skills
+\item Skills
+\end{rSubsection}
+
+\begin{rSubsection}{Graduate Teacher of Record}{August 2018 - December 2019}{Clemson School of Mathematical \& Statistical Sciences}{Clemson, SC}
+\item Instructed five sections of STAT 3090: Introductory Business Statistics
+\item Managed online course activities through the Canvas Learning Management System
+\item Developed engaging classroom activities to present course concepts
+\item Created course learning activities in \LaTeX \hspace{.1mm} to share as a resource with fellow instructors
+\item Facilitated class projects using Minitab, Excel, \& JMP to teach statistical technology skills
+\end{rSubsection}
+
+\end{rSection}
+
+%----------------------------------------------------------------------------------------
+
+\begin{rSection}{Professional Development}
+
+% I'm going to be honest, I don't remember the difference between rSubsection and rNSubsection. But this is how I formatted things that don't have bullet points beneath them.
+
+\begin{rNSubsection}{Course or Certification Name}{Dates}{Company/Organization}{Location}
+\item 
+\end{rNSubsection}
+
+\vspace{-7mm} % The \vspace{} is necessary to get rid of weird spacing that I haven't figured out how to fix yet... ¯\_(ツ)_/¯
+
+\begin{rNSubsection}{Clemson Online Teaching Certification}{May 2020}{Office of Teaching Effectiveness and Innovation, Clemson University}{Clemson, SC}
+\item 
+\end{rNSubsection}
+
+\vspace{-7mm}
+
+\end{rSection}
+
+%----------------------------------------------------------------------------------------
+
+\begin{rSection}{Related Professional Skills}
+
+% This is how I've been doing bulleted lists of professional skills.
+
+\vspace{-3mm}
+
+\begin{rSubsection}{}{}{}{}
+	\item Insert all the skills here!
+	\item Course Management: Canvas, Blackboard, WebAssign, MyLab Math, Hawkes Learning
+	\item Instructional Technology: SMART Notebook, Camtasia Recording Software, Zoom
+%	\item Texas Instrument Calculators
+	\item Productivity Tools: Microsoft Office Suite, \LaTeX \hspace{.1mm} Typesetting Environment
+	\item Collaboration Tools: Dropbox, Box, Google Drive
+\end{rSubsection}
+
+\end{rSection}
+
+% If you want two columns of skills, you could also comment out the above section and use the code below, which uses the multicol package. It all depends on how you want it to look!
+
+%\begin{rSection}{Related Professional Skills}
+%\begin{multicols}{2}[]
+%\begin{itemize}
+%	\item Coding: Python, C++
+%	\item Statistical Analysis: R, JMP, Excel, Minitab, SPSS, SAS
+%	\item Linux Command Line
+%	\item GIS Software: ArcGIS, QGIS
+%	\item Clemson Palmetto Cluster
+%	\item GitHub
+%\end{itemize}
+%\end{multicols}
+%\end{rSection}
+
+%----------------------------------------------------------------------------------------
+
+\end{document}
